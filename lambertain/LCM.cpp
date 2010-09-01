@@ -201,9 +201,9 @@ void had::LCM::classify( const cv::Mat& image,
 
     if( _trace )
     {
-        showImage( "foreground", (mask_foreground_8u - 3) * 255, 6, 0 );
-        showImage( "shadow", (mask_shadow_8u - 1) * 255, 6, 1 );
-        showImage( "background", mask_background_8u * 255, 6, 2 );
+        showImage( "foreground", (mask_foreground_8u - 3) * 255, 0, 0 );
+        showImage( "shadow", (mask_shadow_8u - 1) * 255, 0, 1 );
+        showImage( "background", mask_background_8u * 255, 0, 2 );
     }
 
     // Now use the different masks to create the classification

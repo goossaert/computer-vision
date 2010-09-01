@@ -33,7 +33,7 @@ void had::SingleLCM::computeModel( const cv::Mat& image,
     {
         std::cerr << "mean: B=" << _mean[ 0 ] << " G=" << _mean[ 1 ] << " R=" << _mean[ 2 ] << std::endl;
         std::cerr << "stddev: B=" << _stddev[ 0 ] << " G=" << _stddev[ 1 ] << " R=" << _stddev[ 2 ] << std::endl;
-        showImage( "lcm mask", mask * 255, 5, 3 );
+        showImage( "lcm mask", mask * 255, 1, 0 );
     }
 
     cv::Mat bdist_norm, cdist_norm;
