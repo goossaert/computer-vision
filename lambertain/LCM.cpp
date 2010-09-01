@@ -1,3 +1,5 @@
+// (c)2010 - Emmanuel Goossaert
+// Under GNU License 3.0
 #include "LCM.hpp"
 
 void had::LCM::showImage( const string name, const cv::Mat& image, int col, int row )

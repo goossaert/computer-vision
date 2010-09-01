@@ -1,0 +1,69 @@
+(c) 2010 - Emmanuel Goossaert
+Under GNU License 3.0
+
+--- Get started ---
+
+The source code for the Lambertain Color Model that I implemented is available under the GNU
+License 3.0.
+It can be browsed here: http://github.com/goossaert/computer-vision/tree/master/lambertain/,
+and downloaded here: http://github.com/goossaert/computer-vision/archives/master.
+
+I have run experiments with this model, that I have presented in a post on my blog:
+http://codecapsule.com/2010/09/01/background-segmentation-lambertain-color-model-opencv/
+
+After you have downloaded the source code, unpack it and open the Makefile to set the library
+and include locations to the directory containing OpenCV 2.1 on your computer:
+
+$ tar zxvf lambertain.tgz
+$ cd lambertain
+$ vim Makefile
+$ # ... update the library and include locations to match the one on local machine
+
+Now just run make to compile:
+
+$ make
+
+This will create three executables:
+
+* background. Performs background segmentation. You can run the program without option to get the
+  list of parameters it requires. Also, the shellscript “test_background.sh” runs the program on
+  the dataset from the article.
+* color. Performs color segmentation. You can run the program without option to get the list of
+  parameters it requires. Also, the shellscript “test_color.sh” runs the program on the dataset
+  from the article.
+* videocapture. A small utility that allows you to capture images with a webcam. This is what I
+  used to create my training set, so if you have a webcam, you can use this utility to create
+  your own dataset and rapidly try the algorithm. If you do not have a webcam, I have included the
+  training images that I used with the source code, so that you can experiment with that.
+
+If you are working on Windows, you will need to create a project in the IDE that you use, and add
+the model files to it.
+
+
+--- Possible improvements and optimizations ---
+
+* Threshold selection. Right now, the algorithm to select the thresholds is very inefficient.
+  Indeed, I simply sort the data and use indexes to find the thresholds, yielding to a
+  complexity of a O(n lg n). This could be optimized by using a selection algorithm, which
+  would bring complexity down to O(n).
+* Multiply, not divide. Multiplying by the inverse of the denominators instead of dividing
+  by these denominators would speed up computations, as explained in Section 7 of
+  Horprasert et al. (1999).
+* Global variance. Using global average variance instead of local variance would speed up
+  computations, as explained in Section 7 of Horprasert et al. (1999).
+* Clustering Detection Elimination. I have not implemented the technique covered in
+  Section 5 of Horprasert et al. (1999), which rectifies the erroneous chromaticity
+  distortion values. This would allow the model to produce more accurate results.
+
+
+--- References ---
+
+The scientific publications used to implement this model can be found here:
+
+T. Horprasert, D. Harwood, and L.S. Davis. A statistical approach for real-time robust
+background subtraction and shadow detection. IEEE ICCV, 1999.
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.87.1244&rep=rep1&type=pdf
+
+Y. Yacoob and L.S. Davis. Detection and Analysis of Hair. IEEE Transactions on Pattern
+Analysis and Machine Intelligence, 1164-1169, 2006.
+http://www.umiacs.umd.edu/~yaser/pamis.pdf

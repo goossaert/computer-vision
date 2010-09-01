@@ -1,3 +1,5 @@
+// (c)2010 - Emmanuel Goossaert
+// Under GNU License 3.0
 #include "SingleLCM.hpp"
 
 void had::SingleLCM::computeModelMeanStdDev( const cv::Mat& image,

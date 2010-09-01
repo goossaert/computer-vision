@@ -1,3 +1,5 @@
+// (c)2010 - Emmanuel Goossaert
+// Under GNU License 3.0
 #include "MultipleLCM.hpp"
 
 void had::MultipleLCM::computeModelMeanStdDev( const vector<cv::Mat>& images )
