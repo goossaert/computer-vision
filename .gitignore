@@ -1,0 +1,7 @@
+# Ignore temp files
+*~
+*.swp
+
+# Ignore objet files and libs
+*.o
+*.a
